@@ -227,7 +227,18 @@ if (projectImageUpload) {
   project.image = document.getElementById("projectImage").value; // URL वाला option
   saveProject(project);
 }
-    document.addEventListener("keydown", function(event) {
+    document.addEventListener("contextmenu", function(event) {
+    event.preventDefault();
+  });
+    document.addEventListener("contextmenu", function(event) {
+    event.preventDefault();
+  });
+  document.addEventListener("keydown", function(event) {
+    if (event.ctrlKey && (event.key === "u" || event.key === "U")) {
+      event.preventDefault();
+    }
+  });
+  document.addEventListener("keydown", function(event) {
     if (event.ctrlKey && event.shiftKey && event.key === "I") {
       event.preventDefault();
     }
@@ -244,6 +255,9 @@ if (projectImageUpload) {
       event.preventDefault();
     }
   });
+  document.getElementById("myButton").addEventListener("click",function(){
+    alert("It is possible that the UPI ID does not work on its own, this could be a program error or issue. The user can use the QR code given below or can make the payment directly through the QR code of the centre.");
+  });
   </script>
 </body>
 </html>
